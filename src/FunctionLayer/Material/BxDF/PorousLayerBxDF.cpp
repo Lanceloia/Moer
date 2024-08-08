@@ -1,10 +1,10 @@
 #include "PorousLayerBxDF.h"
 
-PourousLayerBxDF::PourousLayerBxDF(std::shared_ptr<MicrograinBxDF> _micrograinBRDF, std::shared_ptr<BxDF> _bulkBxDF)
+PorousLayerBxDF::PorousLayerBxDF(std::shared_ptr<MicrograinBxDF> _micrograinBRDF, std::shared_ptr<BxDF> _bulkBxDF)
     : micrograinBRDF(_micrograinBRDF), bulkBxDF(_bulkBxDF) {
 }
 // TODO: a better importance sampling
-Spectrum PourousLayerBxDF::f(const Vec3d &out, const Vec3d &in) const {
+Spectrum PorousLayerBxDF::f(const Vec3d &out, const Vec3d &in) const {
     double tau0 = micrograinBRDF->GetTau0();
     double beta = micrograinBRDF->GetBeta();
 
@@ -13,7 +13,7 @@ Spectrum PourousLayerBxDF::f(const Vec3d &out, const Vec3d &in) const {
     return w * micrograinBRDF->f(out, in) + (1. - w) * bulkBxDF->f(out, in);
 }
 
-double PourousLayerBxDF::pdf(const Vec3d &out, const Vec3d &in) const {
+double PorousLayerBxDF::pdf(const Vec3d &out, const Vec3d &in) const {
     double tau0 = micrograinBRDF->GetTau0();
     double beta = micrograinBRDF->GetBeta();
 
@@ -24,7 +24,7 @@ double PourousLayerBxDF::pdf(const Vec3d &out, const Vec3d &in) const {
     return CosTheta(in) / fm::pi_d;
 }
 
-BxDFSampleResult PourousLayerBxDF::sample(const Vec3d &out, const Point2d &sample) const {
+BxDFSampleResult PorousLayerBxDF::sample(const Vec3d &out, const Point2d &sample) const {
     double tau0 = micrograinBRDF->GetTau0();
     double beta = micrograinBRDF->GetBeta();
 

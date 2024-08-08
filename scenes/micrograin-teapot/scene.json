@@ -137,7 +137,7 @@
     "enable_resume_render": false,
     "stratified_sampler": false,
     "scene_bvh": true,
-    "spp": 1024,
+    "spp": 64,
     "spp_step": 16,
     "checkpoint_interval": "0",
     "timeout": "0",

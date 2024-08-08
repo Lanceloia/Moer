@@ -4,7 +4,7 @@
 #include "FunctionLayer/Intersection.h"
 #include "FunctionLayer/Texture/Texture.h"
 
-class PourousLayerMicrograinMaterial : public Material {
+class PorousLayerMicrograinMaterial : public Material {
 public:
     enum MicrograinType {
         CONDUCTOR,
@@ -14,7 +14,7 @@ public:
 
     std::shared_ptr<BSSRDF> getBSSRDF(const Intersection &intersect) const override;
 
-    PourousLayerMicrograinMaterial(const Json &json);
+    PorousLayerMicrograinMaterial(const Json &json);
 
 private:
     MicrograinType micrograinType;

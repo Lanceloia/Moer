@@ -2,9 +2,9 @@
 #include "BxDF.h"
 #include "PorousLayerMicrograinBxDF.h"
 
-class PourousLayerBxDF : public BxDF {
+class PorousLayerBxDF : public BxDF {
 public:
-    PourousLayerBxDF(std::shared_ptr<MicrograinBxDF> _micrograinBRDF, std::shared_ptr<BxDF> _bulkBxDF);
+    PorousLayerBxDF(std::shared_ptr<MicrograinBxDF> _micrograinBRDF, std::shared_ptr<BxDF> _bulkBxDF);
 
     Spectrum f(const Vec3d &out, const Vec3d &in) const override;
 
